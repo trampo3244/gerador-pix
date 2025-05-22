@@ -1,8 +1,10 @@
 from flask import Flask, jsonify, send_from_directory
+from flask_cors import CORS
 from playwright.sync_api import sync_playwright
 import traceback
 
 app = Flask(__name__)
+CORS(app)  # <- Adiciona suporte a CORS
 
 def gerar_chave_pix():
     with sync_playwright() as p:
